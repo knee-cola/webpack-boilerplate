@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "pratim tutorial https://www.youtube.com/watch?v=JdGnYNtuEtE",
   "main": "index.js",
-  /* execute the bellow scripts with "npm run <script-name>" */
   "scripts": {
     "dev": "webpack-dev-server",
     "dev-manual": "webpack -d --watch",
