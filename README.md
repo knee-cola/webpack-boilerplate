@@ -10,7 +10,7 @@ We can use this project as a starting point for new projects in which we want to
 
 Simply pull the repo to local directory and run the following command in the project directory.
 
-  npm install
+    npm install
 
 This command will pull from NPM all the dependencies listed in package.json
 
