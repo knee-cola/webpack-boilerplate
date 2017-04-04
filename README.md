@@ -20,4 +20,4 @@ Files are organized into two folders:
 * **dist** = contains files built by WebPack
 
 ### Webpack Dev Server
-Webpack Dev Server servs it's files from memory, not from the dist folder.
+Webpack Dev Server serves it's files from memory, not from the dist folder.
