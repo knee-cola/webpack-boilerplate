@@ -12,7 +12,7 @@ Simply pull the repo to local directory and run the following command in the pro
 
     npm install
 
-This command will pull from NPM all the dependencies listed in package.json
+This command will pull all the dependencies listed in package.json from NPM
 
 ## Folder structure
 Files are organized into two folders:
