@@ -35,11 +35,11 @@ In package.json file we have setup three scripts:
 
 Each of the scripts can be started from shell with the following comand:
 
-  npm run <script-name>
+    npm run <script-name>
 
 For example, here's how we can run "dev" script:
 
-  npm run dev
+    npm run dev
 
 ### webpack.config.js
 This is configuration for webpack. It's also full of comments explaining what each part means ...
