@@ -3,11 +3,18 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-	entry: './src/app.js',
+	// Defining JavaScript files, which act as entry points to application
+	// > usually each is responsible for a separate sub-page
+	// > Values listed here are used in [plugin] section, where we link subpages
+	//   to coresponding entry points - search for [excludeChunks] & [chunks]
+	 entry: {
+		app: './src/app.js',
+		contact: './src/contact.js'
+	},
 	output: {
 		// here we need to set an absolute path - we're resolve path at runtime
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'app.bundle.js'
+		filename: '[name].bundle.js' // the [name] will be replaced by the name of entry JavaScript File
 	},
 	module: {
 		rules: [
@@ -40,13 +47,22 @@ module.exports = {
 		open: true // will automatically open browser window at startup
 	},
 	plugins: [
-		// Generates default index.html
+		// Generates index.html based on the given template
 		new HtmlWebpackPlugin({
 			title: "This title is set from config file",
 			template: './src/index.ejs',  // load a custom template
 			minify: {
 				// collapseWhitespace: true
 			},
+			excludeChunks: ['contact'], // don't link index.html to contact entry point
+			hash: true // cache busting for JS and CSS files - a hash will be added to after ".js" and ".css"
+		}),
+		// Generates contact.html based on the given template
+		new HtmlWebpackPlugin({
+			title: "This is a contact page",
+			template: './src/contact.ejs',  // load a custom template
+			filename: 'contact.html', // the output will be saved to given filename
+			chunks: ['contact'], // include ONLY contact entry point in contact.html
 			hash: true // cache busting for JS and CSS files - a hash will be added to after ".js" and ".css"
 		}),
 		new ExtractTextPlugin({
@@ -54,6 +70,5 @@ module.exports = {
 			disable: false,
 			allChunks: true
 		})
-		
 	]
 }
